@@ -7,8 +7,18 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
-    {
+    public function index() {
+        // return Post::get();
+        // return Post::find(2);
+        // return Post::all();    
+        // return Post::where("title", "update_test2")->count();
+        
+        $post = new Post();
         return $post->get();
-    }   
+    }
+    
+    // public function index(Post $post)
+    // {
+    //     return $post->get();
+    // }
 }
