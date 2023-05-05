@@ -10,13 +10,19 @@ class PostController extends Controller
     public function index() {
         // return Post::get();
         // return Post::find(2);
-        // return Post::all();    
+        // return Post::all();
         // return Post::where("title", "update_test2")->count();
-        
+
         $post = new Post();
         return $post->get();
     }
-    
+
+    public function test() {
+        $post = new Post();
+        $data = $post->get();
+        return view("/posts/index", compact("data"));
+    }
+
     // public function index(Post $post)
     // {
     //     return $post->get();
