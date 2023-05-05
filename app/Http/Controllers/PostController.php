@@ -7,26 +7,22 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index() {
+    public function index(Post $post) {
         // return Post::get();
         // return Post::find(2);
         // return Post::all();
         // return Post::where("title", "update_test2")->count();
-
-        $post = new Post();
         return $post->get();
     }
 
-    public function test() {
-        $post = new Post();
+    public function test(Post $post) {
         // $data = $post->sortedLimitGet();
-        $data = $post->sortedLimitPeginate();
-        return view("/posts/index", compact("data"));
-        // return view("/posts/index")->with(["data" => $data]);
+        $posts = $post->sortedLimitPaginate();
+        return view("/posts/index", compact("posts"));
     }
 
-    // public function index(Post $post)
-    // {
-    //     return $post->get();
-    // }
+    public function show(Post $post, $id) {
+        $data = $post->find($id);
+        return view("posts/show", compact("id", "data"));
+    }
 }
