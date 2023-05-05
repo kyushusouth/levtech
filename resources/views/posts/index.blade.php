@@ -31,6 +31,8 @@
         @endforeach
     </article>
 
+    <a href="/posts/create">create</a>
+
     <div class="pagination">
         {{$posts->links("vendor.pagination.default")}}
     </div>

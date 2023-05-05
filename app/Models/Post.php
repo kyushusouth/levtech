@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ["title", "body"];
+
     public function insert() {
         $this->id = 11;
         $this->title = "insert_test2";

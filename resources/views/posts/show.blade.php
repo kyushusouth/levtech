@@ -25,7 +25,7 @@
     <article>
         <h1>{{$data->title}}</h1>
         <p>{{$data->body}}</p>
-        <a href="/">page back</a>
+        <a href="/">TOPに戻る</a>
     </article>
 </body>
 </html>
