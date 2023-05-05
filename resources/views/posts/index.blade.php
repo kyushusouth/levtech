@@ -21,30 +21,18 @@
     </header>
 
     <article>
-        <section>
-            <h2>title</h2>
-            <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
-        </section>
-        <section>
-            <h2>title</h2>
-            <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
-        </section>
-        <section>
-            <h2>title</h2>
-            <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
-        </section>
+        @foreach ($posts as $post)
+            <section>
+                <h2>
+                    <a href="/posts/{{$post->id}}">{{$post->title}}</a>
+                </h2>
+                <p>{{$post->body}}</p>
+            </section>
+        @endforeach
     </article>
 
-    <div>
-        @foreach ($data as $d)
-            <p>{{$d}}</p>
-            <p>{{$d["id"]}}</p>
-            <p>{{$d["created_at"]}}</p>
-        @endforeach
-    </div>
-
     <div class="pagination">
-        {{$data->links("vendor.pagination.default")}}
+        {{$posts->links("vendor.pagination.default")}}
     </div>
 </body>
 </html>

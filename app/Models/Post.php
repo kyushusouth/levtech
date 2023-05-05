@@ -21,7 +21,7 @@ class Post extends Model
         return $data;
     }
 
-    public function sortedLimitPeginate() {
+    public function sortedLimitPaginate() {
         $data = $this->orderBy("updated_at", "desc")->paginate(5);
         return $data;
     }
