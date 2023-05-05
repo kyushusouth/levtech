@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>posts</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
@@ -34,10 +35,16 @@
         </section>
     </article>
 
-    @foreach ($data as $d)
-        <p>{{$d}}</p>
-        <p>{{$d["id"]}}</p>
-        <p>{{$d["created_at"]}}</p>
-    @endforeach
+    <div>
+        @foreach ($data as $d)
+            <p>{{$d}}</p>
+            <p>{{$d["id"]}}</p>
+            <p>{{$d["created_at"]}}</p>
+        @endforeach
+    </div>
+
+    <div class="pagination">
+        {{$data->links("vendor.pagination.default")}}
+    </div>
 </body>
 </html>

@@ -19,9 +19,10 @@ class PostController extends Controller
 
     public function test() {
         $post = new Post();
-        // $post->insert();
-        $data = $post->sortedLimitGet();
+        // $data = $post->sortedLimitGet();
+        $data = $post->sortedLimitPeginate();
         return view("/posts/index", compact("data"));
+        // return view("/posts/index")->with(["data" => $data]);
     }
 
     // public function index(Post $post)
