@@ -27,6 +27,7 @@
                     <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                 </h2>
                 <p>{{$post->body}}</p>
+                <a href="/posts/{{$post->id}}/edit">編集</a>
             </section>
         @endforeach
     </article>
