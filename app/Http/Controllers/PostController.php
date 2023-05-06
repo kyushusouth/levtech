@@ -26,4 +26,15 @@ class PostController extends Controller
         $post->fill($request->all())->save();
         return redirect("/posts/" . $post->id);
     }
+
+    public function edit(Post $post, $id) {
+        $data = $post->find($id);
+        return view("/posts/" . $post->$id . "/edit", compact("id", "data"));
+    }
+
+    public function update(PostRequest $request, $id) {
+        $data = Post::find($id);
+        $data->update($request->all());
+        return redirect("/posts/" . $id);
+    }
 }
