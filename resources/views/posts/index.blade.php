@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>posts</title>
     <link rel="stylesheet" href="/css/style.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <header>
@@ -28,6 +29,12 @@
                 </h2>
                 <p>{{$post->body}}</p>
                 <a href="/posts/{{$post->id}}/edit">編集</a>
+
+                <form action="/posts/{{$post->id}}" id="deleteButtonForm" method="post">
+                    @csrf
+                    @method("delete")
+                    <button type="button" id="deleteButton">削除</button>
+                </form>
             </section>
         @endforeach
     </article>
@@ -37,5 +44,7 @@
     <div class="pagination">
         {{$posts->links("vendor.pagination.default")}}
     </div>
+    <p>{{asset("js/app.js")}}</p>
+    <script src="{{asset("js/app.js")}}"></script>
 </body>
 </html>
