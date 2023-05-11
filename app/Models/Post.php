@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title", "body"];
+    protected $fillable = ["title", "body", "category_id"];
 
     public function insert() {
         $this->id = 11;
@@ -24,7 +24,11 @@ class Post extends Model
     }
 
     public function sortedLimitPaginate() {
-        $data = $this->orderBy("updated_at", "desc")->paginate(5);
+        $data = $this::with("category")->orderBy("updated_at", "desc")->paginate(5);
         return $data;
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 }
