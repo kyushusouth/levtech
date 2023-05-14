@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use DateTime;
 use Illuminate\Support\Str;
 
-class PostSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +17,8 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-            'title' => Str::random(20),
-            'body' => Str::random(100),
+        DB::table('categories')->insert([
+            'name' => Str::random(20),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
