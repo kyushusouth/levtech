@@ -18,6 +18,7 @@ Route::get("/", [PostController::class, "index"]);
 Route::get("/posts/create", [PostController::class, "create"]);
 Route::get("/posts/{id}", [PostController::class, "show"]);
 Route::put("/posts/{id}", [PostController::class, "update"]);
+Route::delete("/posts/{id}", [PostController::class, "delete"]);
 Route::post("/posts", [PostController::class, "store"]);
 Route::get("/posts/{id}/edit", [PostController::class, "edit"]);
 Route::get('/categories/{category}', [CategoryController::class,'index']);

@@ -38,4 +38,9 @@ class PostController extends Controller
         $data->update($request->all());
         return redirect("/posts/" . $id);
     }
+
+    public function delete($id) {
+        Post::find($id)->delete();
+        return redirect("/");
+    }
 }
